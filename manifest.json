@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Dice Auto Apply",
+    "version": "1.0",
+    "description": "Automatically applies to jobs on Dice with Easy Apply.",
+    "permissions": ["tabs", "storage", "scripting"],
+    "host_permissions": ["https://www.dice.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.dice.com/jobs*"],
+        "js": ["content.js"]
+      },
+      {
+        "matches": ["https://www.dice.com/job-detail/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "action": {
+      "default_title": "Dice Auto Apply"
+    }
+  }
+  
